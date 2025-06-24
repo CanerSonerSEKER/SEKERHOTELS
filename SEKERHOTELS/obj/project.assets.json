@@ -323,11 +323,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/a1-08/Projects/SEKERHOTELS/SEKERHOTELS/SEKERHOTELS.csproj",
+      "projectUniqueName": "/Users/a1-08/Desktop/SEKERHOTELS/SEKERHOTELS/SEKERHOTELS.csproj",
       "projectName": "SEKERHOTELS",
-      "projectPath": "/Users/a1-08/Projects/SEKERHOTELS/SEKERHOTELS/SEKERHOTELS.csproj",
+      "projectPath": "/Users/a1-08/Desktop/SEKERHOTELS/SEKERHOTELS/SEKERHOTELS.csproj",
       "packagesPath": "/Users/a1-08/.nuget/packages/",
-      "outputPath": "/Users/a1-08/Projects/SEKERHOTELS/SEKERHOTELS/obj/",
+      "outputPath": "/Users/a1-08/Desktop/SEKERHOTELS/SEKERHOTELS/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/a1-08/.nuget/NuGet/NuGet.Config"

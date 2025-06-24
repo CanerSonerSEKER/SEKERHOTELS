@@ -3,24 +3,25 @@
 <form asp-action="CreateAndUpdate" asp-controller="Hotels" method="post">
     <div class="row">
         <div class="col-lg-12">
-            <input type="hidden" asp-for="Create"/>
+            <input type="hidden" asp-for="Id"/>
 
             <div class="form-group">
-                <label>Ad Soyad:</label>
+                <label>Hotels Name :</label>
                 <input asp-for="Name" type="text" class="form-control required" placeholder="Girilmesi zorunlu." />
             </div>
             <div class="form-group">
-                <label>Yaş:</label>
+                <label>Star Count :</label>
                 <input asp-for="StarCount" type="text" class="form-control required" placeholder="Girilmesi zorunlu." />
             </div>
             <div class="form-group">
-                <label>Tecrübe:</label>
+                <label>City Name :</label>
                 <input asp-for="City" type="text" class="form-control required" placeholder="Girilmesi zorunlu." />
             </div>
 
             <div class="card-footer">
                 <center>
-                    <button type="submit" class="btn btn-warning">Create Eleman</button>
+                    <button type="submit" class="btn btn-warning"> OK </button>
+                    <a asp-action="Index" asp-controller="Hotels" asp-route-id=""
                 </center>
             </div>
         </div>

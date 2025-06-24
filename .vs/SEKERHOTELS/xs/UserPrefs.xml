@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{8D51BB24-9240-482A-9D96-6053C58D1A8B}|https">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.SEKERHOTELS PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="SEKERHOTELS/Views/Hotels/Index.cshtml">
+    <Files>
+      <File FileName="SEKERHOTELS/Views/Hotels/CreateAndUpdate.cshtml" />
+      <File FileName="SEKERHOTELS/Views/Hotels/Index.cshtml" Line="35" Column="50" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SEKERHOTELS">
+            <Node name="SEKERHOTELS" expanded="True">
+              <Node name="Models" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Hotels" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>

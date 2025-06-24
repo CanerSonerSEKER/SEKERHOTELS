@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <a asp-action="Create" asp-controller="Hotels" class="btn btn-success">
+        <a asp-action="CreateAndUpdate" asp-controller="Hotels" class="btn btn-success">
             Create
         </a>
     </div>
@@ -32,7 +32,7 @@
                         <td>@item.StarCount</td>
                         <td>@item.City</td>
                         <td>
-                            <a asp-action="Create" asp-controller="Hotels" asp-route-id="@item.Id" class="btn btn-warning btn-sm-2">Details</a>
+                            <a asp-action="CreateAndUpdate" asp-controller="Hotels" asp-route-id="@item.Id" class="btn btn-warning btn-sm-2">Details</a>
                         </td>
                     </tr>
                 }
