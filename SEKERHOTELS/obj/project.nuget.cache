@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "wQ+cwEO3Gr5fGGQ/V3yXEySigoED8yjKnhu+0eLkqf7dSGst3VbZ8JeRO0Ck0UcK3C5aD0peU6ID2VqYSb/xcQ==",
+  "success": true,
+  "projectFilePath": "/Users/a1-08/Projects/SEKERHOTELS/SEKERHOTELS/SEKERHOTELS.csproj",
+  "expectedPackageFiles": [
+    "/Users/a1-08/.nuget/packages/dapper/2.1.66/dapper.2.1.66.nupkg.sha512",
+    "/Users/a1-08/.nuget/packages/microsoft.bcl.asyncinterfaces/9.0.1/microsoft.bcl.asyncinterfaces.9.0.1.nupkg.sha512",
+    "/Users/a1-08/.nuget/packages/runtime.native.system.data.sqlclient.sni/4.4.0/runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "/Users/a1-08/.nuget/packages/runtime.win-arm64.runtime.native.system.data.sqlclient.sni/4.4.0/runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "/Users/a1-08/.nuget/packages/runtime.win-x64.runtime.native.system.data.sqlclient.sni/4.4.0/runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "/Users/a1-08/.nuget/packages/runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0/runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "/Users/a1-08/.nuget/packages/system.data.sqlclient/4.9.0/system.data.sqlclient.4.9.0.nupkg.sha512",
+    "/Users/a1-08/.nuget/packages/system.reflection.emit.lightweight/4.7.0/system.reflection.emit.lightweight.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
