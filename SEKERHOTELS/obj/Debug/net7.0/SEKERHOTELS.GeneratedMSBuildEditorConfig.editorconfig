@@ -9,45 +9,57 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SEKERHOTELS
 build_property.RootNamespace = SEKERHOTELS
-build_property.ProjectDir = /Users/a1-08/Desktop/SEKERHOTELS/SEKERHOTELS/
+build_property.ProjectDir = C:\Users\caner_w7ti90b\Desktop\SEKERHOTELS\SEKERHOTELS\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/a1-08/Desktop/SEKERHOTELS/SEKERHOTELS
+build_property.MSBuildProjectDirectory = C:\Users\caner_w7ti90b\Desktop\SEKERHOTELS\SEKERHOTELS
 build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 7.0
+build_property.EnableCodeStyleSeverity = 
 
-[/Users/a1-08/Desktop/SEKERHOTELS/SEKERHOTELS/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[C:/Users/caner_w7ti90b/Desktop/SEKERHOTELS/SEKERHOTELS/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/a1-08/Desktop/SEKERHOTELS/SEKERHOTELS/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+[C:/Users/caner_w7ti90b/Desktop/SEKERHOTELS/SEKERHOTELS/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/a1-08/Desktop/SEKERHOTELS/SEKERHOTELS/Views/Hotels/CreateAndUpdate.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG90ZWxzL0NyZWF0ZUFuZFVwZGF0ZS5jc2h0bWw=
+[C:/Users/caner_w7ti90b/Desktop/SEKERHOTELS/SEKERHOTELS/Views/Hotels/CreateAndUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxzXENyZWF0ZUFuZFVwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/a1-08/Desktop/SEKERHOTELS/SEKERHOTELS/Views/Hotels/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG90ZWxzL0luZGV4LmNzaHRtbA==
+[C:/Users/caner_w7ti90b/Desktop/SEKERHOTELS/SEKERHOTELS/Views/Hotels/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/a1-08/Desktop/SEKERHOTELS/SEKERHOTELS/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+[C:/Users/caner_w7ti90b/Desktop/SEKERHOTELS/SEKERHOTELS/Views/RoomTypes/CreateAndUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVR5cGVzXENyZWF0ZUFuZFVwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/a1-08/Desktop/SEKERHOTELS/SEKERHOTELS/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Users/caner_w7ti90b/Desktop/SEKERHOTELS/SEKERHOTELS/Views/RoomTypes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVR5cGVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/a1-08/Desktop/SEKERHOTELS/SEKERHOTELS/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/caner_w7ti90b/Desktop/SEKERHOTELS/SEKERHOTELS/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/a1-08/Desktop/SEKERHOTELS/SEKERHOTELS/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/caner_w7ti90b/Desktop/SEKERHOTELS/SEKERHOTELS/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/a1-08/Desktop/SEKERHOTELS/SEKERHOTELS/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-sfux1sqv7z
+[C:/Users/caner_w7ti90b/Desktop/SEKERHOTELS/SEKERHOTELS/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/caner_w7ti90b/Desktop/SEKERHOTELS/SEKERHOTELS/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/caner_w7ti90b/Desktop/SEKERHOTELS/SEKERHOTELS/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-zddhwni6ur

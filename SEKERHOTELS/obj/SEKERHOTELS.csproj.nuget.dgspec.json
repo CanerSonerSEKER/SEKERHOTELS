@@ -1,26 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/a1-08/Desktop/SEKERHOTELS/SEKERHOTELS/SEKERHOTELS.csproj": {}
+    "C:\\Users\\caner_w7ti90b\\Desktop\\SEKERHOTELS\\SEKERHOTELS\\SEKERHOTELS.csproj": {}
   },
   "projects": {
-    "/Users/a1-08/Desktop/SEKERHOTELS/SEKERHOTELS/SEKERHOTELS.csproj": {
+    "C:\\Users\\caner_w7ti90b\\Desktop\\SEKERHOTELS\\SEKERHOTELS\\SEKERHOTELS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/a1-08/Desktop/SEKERHOTELS/SEKERHOTELS/SEKERHOTELS.csproj",
+        "projectUniqueName": "C:\\Users\\caner_w7ti90b\\Desktop\\SEKERHOTELS\\SEKERHOTELS\\SEKERHOTELS.csproj",
         "projectName": "SEKERHOTELS",
-        "projectPath": "/Users/a1-08/Desktop/SEKERHOTELS/SEKERHOTELS/SEKERHOTELS.csproj",
-        "packagesPath": "/Users/a1-08/.nuget/packages/",
-        "outputPath": "/Users/a1-08/Desktop/SEKERHOTELS/SEKERHOTELS/obj/",
+        "projectPath": "C:\\Users\\caner_w7ti90b\\Desktop\\SEKERHOTELS\\SEKERHOTELS\\SEKERHOTELS.csproj",
+        "packagesPath": "C:\\Users\\caner_w7ti90b\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\caner_w7ti90b\\Desktop\\SEKERHOTELS\\SEKERHOTELS\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/a1-08/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\caner_w7ti90b\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/sdk/7.0.317/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -33,7 +38,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net7.0": {
@@ -67,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.317/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
