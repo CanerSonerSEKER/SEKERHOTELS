@@ -14,8 +14,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\Hotels\" />
+    <None Remove="Views\Rooms\" />
+    <None Remove="Views\Reservations\" />
+    <None Remove="Views\Customers\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Hotels\" />
+    <Folder Include="Views\Rooms\" />
+    <Folder Include="Views\Reservations\" />
+    <Folder Include="Views\Customers\" />
   </ItemGroup>
 </Project>

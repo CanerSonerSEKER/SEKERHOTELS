@@ -1,0 +1,55 @@
+﻿@model SEKERHOTELS.Models.RoomsModel
+
+@{
+    ViewData["Title"] = Model.Id == 0 ? "Yeni Oda Tipi Ekle" : "Oda Tipini Güncelle";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+<div class="container mt-5">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-header bg-primary text-white text-center rounded-top-4">
+            <h3 class="mb-0">@ViewData["Title"]</h3>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="CreateAndUpdate" asp-controller="Rooms" method="post" novalidate>
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-4">
+                    <label class="form-label fw-semibold"> Otel ID </label>
+                    <input asp-for="HotelId" type="text" class="form-control form-control-lg" placeholder="Örn: 1,2,3,4" />
+                    <span asp-validation-for="HotelId" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">Oda Numarası </label>
+                    <input asp-for="RoomNumber" type="text" class="form-control form-control-lg" placeholder="Oda numarası ..." />
+                    <span asp-validation-for="RoomNumber" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">Kapasite </label>
+                    <input asp-for="Capacity" type="text" class="form-control form-control-lg" placeholder="Oda Kapasite ..." />
+                    <span asp-validation-for="Capacity" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">Gecelik Fiyatı </label>
+                    <input asp-for="PricePerNight" type="text" class="form-control form-control-lg" placeholder="Gecelik fiyat ..." />
+                    <span asp-validation-for="PricePerNight" class="text-danger small"></span>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-success px-4 me-2">
+                        <i class="bi bi-check-circle-fill"></i> Kaydet
+                    </button>
+                    <a asp-action="Index" asp-controller="Rooms" class="btn btn-outline-secondary px-4">
+                        <i class="bi bi-x-circle-fill"></i> Vazgeç
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

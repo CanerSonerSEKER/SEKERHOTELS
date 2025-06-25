@@ -1,7 +1,7 @@
-﻿@model IEnumerable<SEKERHOTELS.Models.RoomTypesModel>
+﻿@model IEnumerable<SEKERHOTELS.Models.ReservationsModel>
 
 @{
-    ViewData["Title"] = "Oda Tipleri";
+    ViewData["Title"] = "Rezervasyonlar ";
 }
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -9,8 +9,8 @@
 <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2 class="text-primary">Oda Tipleri</h2>
-        <a asp-action="CreateAndUpdate" asp-controller="RoomTypes" class="btn btn-success">
-            <i class="bi bi-plus-circle"></i> Yeni Oda Tipi Ekle
+        <a asp-action="CreateAndUpdate" asp-controller="Reservations" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Rezervasyon Oluştur
         </a>
     </div>
 
@@ -22,8 +22,10 @@
                     <thead class="table-dark">
                         <tr>
                             <th>#</th>
-                            <th>Oda Tipi</th>
-                            <th>Açıklama</th>
+                            <th>Customer Id </th>
+                            <th>Room Id </th>
+                            <th>Check In Date </th>
+                            <th>Check Out Date </th>
                             <th>İşlemler</th>
                         </tr>
                     </thead>
@@ -31,14 +33,16 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td>@item.Id</td>
-                                <td>@item.Name</td>
-                                <td>@item.Description</td>
+                                <td></td>
+                                <td>@item.CustomerId</td>
+                                <td>@item.RoomId</td>
+                                <td>@item.CheckInDate.ToString("dd/MM/yyyy")</td>
+                                <td>@item.CheckOutDate.ToString("dd/MM/yyyy") </td>
                                 <td>
-                                    <a asp-action="CreateAndUpdate" asp-controller="RoomTypes" asp-route-id="@item.Id" class="btn btn-warning btn-sm me-2">
+                                    <a asp-action="CreateAndUpdate" asp-controller="Reservations" asp-route-id="@item.Id" class="btn btn-warning btn-sm me-2">
                                         <i class="bi bi-pencil-square"></i> Düzenle
                                     </a>
-                                    <a asp-action="Delete" asp-controller="RoomTypes" asp-route-id="@item.Id" class="btn btn-danger btn-sm" onclick="return confirm('Bu oda tipini silmek istediğinizden emin misiniz?');">
+                                    <a asp-action="Delete" asp-controller="Reservations" asp-route-id="@item.Id" class="btn btn-danger btn-sm" onclick="return confirm('Bu oda tipini silmek istediğinizden emin misiniz?');">
                                         <i class="bi bi-trash"></i> Sil
                                     </a>
                                 </td>
