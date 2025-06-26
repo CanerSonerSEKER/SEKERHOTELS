@@ -114,7 +114,7 @@
                                 <span class="badge me-2" style="background-color: #e3f2fd; color: #1976d2;">Lüks</span>
                                 <span class="badge" style="background-color: #e8f5e9; color: #388e3c;">SPA</span>
                             </div>
-                            <a asp-action="CreateAndUpdate" asp-controller="Hotels" asp-route-id="@item.Id" 
+                            <a asp-action="CreateAndUpdate" asp-controller="Hotels" asp-route-id="@item.Id"
                                class="btn btn-sm rounded-pill px-3" style="border: 1px solid #3498db; color: #3498db;">
                                 Detaylar
                             </a>
@@ -131,18 +131,18 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         .hotel-card {
             transition: all 0.3s ease;
             overflow: hidden;
             height: 100%;
         }
-        
-        .hotel-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12) !important;
-        }
-        
+
+            .hotel-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12) !important;
+            }
+
         .btn-favorite {
             position: absolute;
             top: 15px;
@@ -160,29 +160,29 @@
             z-index: 10;
             transition: all 0.3s ease;
         }
-        
-        .btn-favorite:hover {
-            color: #c0392b;
-            transform: scale(1.1);
-        }
-        
-        .btn-favorite .fas {
-            display: none;
-        }
-        
-        .btn-favorite.active .far {
-            display: none;
-        }
-        
-        .btn-favorite.active .fas {
-            display: block;
-        }
-        
+
+            .btn-favorite:hover {
+                color: #c0392b;
+                transform: scale(1.1);
+            }
+
+            .btn-favorite .fas {
+                display: none;
+            }
+
+            .btn-favorite.active .far {
+                display: none;
+            }
+
+            .btn-favorite.active .fas {
+                display: block;
+            }
+
         .star-rating {
             font-size: 0.9rem;
         }
-        
-        .carousel-control-prev, 
+
+        .carousel-control-prev,
         .carousel-control-next {
             width: 30px;
             height: 30px;
@@ -193,12 +193,10 @@
 }
 
 @section Scripts {
-    <script>
-        // Favori buton işlevselliği
+    <script>// Favori buton işlevselliği
         document.querySelectorAll('.btn-favorite').forEach(btn => {
-            btn.addEventListener('click', function() {
+            btn.addEventListener('click', function () {
                 this.classList.toggle('active');
             });
-        });
-    </script>
+        });</script>
 }
