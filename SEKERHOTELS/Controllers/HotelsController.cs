@@ -13,9 +13,16 @@ namespace SEKERHOTELS.Controllers
     public class HotelsController : Controller
     {
         // GET: /<controller>/
-        public IActionResult Index()
+        public IActionResult Index(string name)
         {
-            return View(DP.Listeleme<HotelsModel>("GetAllHotels"));
+            DynamicParameters param = new DynamicParameters();
+
+            param.Add("@Name", string.IsNullOrWhiteSpace(name) ? null : name);
+
+            var searchWithList = DP.Listeleme<HotelsModel>("SearchingHotels", param);
+
+            return View(searchWithList);
+            //return View(DP.Listeleme<HotelsModel>("GetAllHotels"));
         }
 
 

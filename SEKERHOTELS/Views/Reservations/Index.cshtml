@@ -22,8 +22,8 @@
                     <thead class="table-dark">
                         <tr>
                             <th>#</th>
-                            <th>Customer Id </th>
-                            <th>Room Id </th>
+                            <th>Customer Name </th>
+                            <th>Room Number </th>
                             <th>Check In Date </th>
                             <th>Check Out Date </th>
                             <th>İşlemler</th>
@@ -34,8 +34,8 @@
                         {
                             <tr>
                                 <td></td>
-                                <td>@item.FullName</td>
-                                <td>@item.RoomNumber</td>
+                                <td>@item.CustomerName</td>
+                                <td>@item.RoomName</td>
                                 <td>@item.CheckInDate.ToString("dd/MM/yyyy")</td>
                                 <td>@item.CheckOutDate.ToString("dd/MM/yyyy") </td>
                                 <td>
