@@ -138,3 +138,35 @@ namespace SEKERHOTELS.Controllers
 
 
 
+/* -- Salih prosedür kısmı arama çubuğu 
+ALTER PROCEDURE [dbo].[PersonelAdIdArama]
+@AdSoyad NVARCHAR(200) = NULL,
+@DepartmanID INT = NULL
+AS
+BEGIN
+SELECT p.PersonelID,
+p.AdSoyad,
+d.DepartmanAd,
+z.PozisyonAd
+FROM Personeller p
+LEFT JOIN Departmanlar d ON d.DepartmanID = p.DepartmanID
+LEFT JOIN Pozisyonlar z ON z.PozisyonID = p.PozisyonID
+WHERE (@AdSoyad IS NULL OR p.AdSoyad LIKE '%' + @AdSoyad + '%')
+AND (@DepartmanID IS NULL OR p.DepartmanID = @DepartmanID)
+END
+GO
+
+ -- Kod Kısmı
+
+public IActionResult Index(string adSoyad, int? departmanId)
+{
+ViewBag.Departmanlar = DP.Listeleme<Departmanlar>("DepartmanViewAll").ToList();
+
+var param = new DynamicParameters();
+param.Add("@AdSoyad", string.IsNullOrWhiteSpace(adSoyad) ? null : adSoyad);
+param.Add("@DepartmanID", departmanId);
+
+var personelListe = DP.Listeleme<dynamic>("PersonelAdIdDüzenleme", param);
+return View(personelListe);
+}*/
+
