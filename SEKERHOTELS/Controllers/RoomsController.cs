@@ -21,14 +21,15 @@ namespace SEKERHOTELS.Controllers
             DynamicParameters param = new DynamicParameters();
 
             param.Add("@Name", string.IsNullOrWhiteSpace(name) ? null : name);
-            param.Add("@");
-            param.Add();
-            param.Add();
+            param.Add("@RoomNumber", string.IsNullOrWhiteSpace(roomNum.ToString()) ? null : roomNum);
+            param.Add("@Capacity", capacity == 0 ? null : capacity);
+            param.Add("@PricePerNight", price == 0 ? null : price);
+
+            var listWithSearch = DP.Listeleme<dynamic>("SearchingRooms", param);
 
 
-
-            var indexNames = DP.Listeleme<dynamic>("GetListNameRooms");
-            return View(indexNames);
+            //var indexNames = DP.Listeleme<dynamic>("GetListNameRooms");
+            return View(listWithSearch);
         }
 
 
