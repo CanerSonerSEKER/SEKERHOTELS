@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SEKERHOTELS.Models.ReservationsModel>
+﻿@model IEnumerable<dynamic>
 
 @{
     ViewData["Title"] = "Rezervasyonlar ";
@@ -34,8 +34,8 @@
                         {
                             <tr>
                                 <td></td>
-                                <td>@item.CustomerId</td>
-                                <td>@item.RoomId</td>
+                                <td>@item.FullName</td>
+                                <td>@item.RoomNumber</td>
                                 <td>@item.CheckInDate.ToString("dd/MM/yyyy")</td>
                                 <td>@item.CheckOutDate.ToString("dd/MM/yyyy") </td>
                                 <td>

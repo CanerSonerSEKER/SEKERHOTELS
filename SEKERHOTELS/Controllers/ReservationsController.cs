@@ -16,20 +16,22 @@ namespace SEKERHOTELS.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            return View(DP.Listeleme<ReservationsModel>("GetAllReservations"));
+            var indexList = DP.Listeleme<dynamic>("GetListWithName");
+            return View(indexList);
+            //return View(DP.Listeleme<ReservationsModel>("GetAllReservations"));
         }
 
 
         public IActionResult CreateAndUpdate(int id = 0)
         {
+            var customerName = DP.Listeleme<CustomersModel>("GetAllCustomers");
+            ViewBag.CustomerName = new SelectList(customerName, "Id", "FullName");
+
+            var roomName = DP.Listeleme<RoomsModel>("GetAllRooms");
+            ViewBag.RoomName = new SelectList(roomName, "Id", "RoomNumber");
+
             if (id == 0 )
             {
-                var customerName = DP.Listeleme<CustomersModel>("GetAllCustomers");
-                ViewBag.CustomerName = new SelectList(customerName, "Id", "FullName");
-
-                var roomName = DP.Listeleme<RoomsModel>("GetAllRooms");
-                ViewBag.RoomName = new SelectList(roomName, "Id", "RoomNumber");
-
                 ReservationsModel reservation = new ReservationsModel();
                 return View(reservation);
             }

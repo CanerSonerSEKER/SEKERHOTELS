@@ -18,8 +18,11 @@
                 <input type="hidden" asp-for="Id" />
 
                 <div class="mb-4">
-                    <label class="form-label fw-semibold"> Otel ID </label>
-                    <input asp-for="HotelId" type="text" class="form-control form-control-lg" placeholder="Örn: 1,2,3,4" />
+                    <label class="form-label fw-semibold"> Otel  </label>
+                    <select asp-for="HotelId" class="form-control" asp-items="ViewBag.HotelsName">
+                        <option value="">-- Otel Seçiniz --</option>
+                    </select>
+                    @*<input asp-for="HotelId" type="text" class="form-control form-control-lg" placeholder="Örn: 1,2,3,4" />*@
                     <span asp-validation-for="HotelId" class="text-danger small"></span>
                 </div>
 

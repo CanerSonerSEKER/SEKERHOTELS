@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SEKERHOTELS.Models.RoomsModel>
+﻿@model IEnumerable<dynamic>
 
 @{
     ViewData["Title"] = "Odalar ";
@@ -25,7 +25,7 @@
                             <div class="card h-100 shadow-sm border-0">
                                 <div class="card-body">
                                     <h5 class="card-title text-primary">Oda No: @item.RoomNumber</h5>
-                                    <p class="card-text mb-1"><strong>Otel ID:</strong> @item.HotelId</p>
+                                    <p class="card-text mb-1"><strong>Otel ID:</strong> @item.Name</p>
                                     <p class="card-text mb-1"><strong>Kapasite:</strong> @item.Capacity kişi</p>
                                     <p class="card-text mb-3"><strong>Gecelik Fiyat:</strong> ₺@item.PricePerNight</p>
                                 </div>

@@ -1,43 +1,204 @@
-﻿@model IEnumerable<SEKERHOTELS.Models.HotelsModel>
+﻿@*@model IEnumerable<SEKERHOTELS.Models.HotelsModel>
 
-<h2> HOTELS  </h2>
+    <h2> HOTELS  </h2>
 
-<div class="row">
-    <div class="col-md-12">
-        <a asp-action="CreateAndUpdate" asp-controller="Hotels" class="btn btn-success">
-            Create
+    <div class="row">
+        <div class="col-md-12">
+            <a asp-action="CreateAndUpdate" asp-controller="Hotels" class="btn btn-success">
+                Create
+            </a>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>Hotels Name </td>
+                        <td>Star Count </td>
+                        <td>City </td>
+                        <td></td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.StarCount</td>
+                            <td>@item.City</td>
+                            <td>
+                                <a asp-action="CreateAndUpdate" asp-controller="Hotels" asp-route-id="@item.Id" class="btn btn-warning btn-sm-2">Details</a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>*@
+@model IEnumerable<SEKERHOTELS.Models.HotelsModel>
+
+<div class="container-fluid py-4" style="background-color: #f8f9fa;">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <div>
+            <h1 class="fw-bold display-6" style="color: #2c3e50;">Premium Otel Koleksiyonu</h1>
+            <p class="mb-0" style="color: #7f8c8d;">Dünyanın en lüks konaklama deneyimleri</p>
+        </div>
+        <a asp-action="CreateAndUpdate" asp-controller="Hotels" class="btn rounded-pill px-4" style="background-color: #3498db; color: white;">
+            <i class="fas fa-plus me-2"></i>Yeni Otel Ekle
         </a>
     </div>
 
+    <div class="row g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="card hotel-card border-0" style="background-color: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                    <!-- Otel Görsel Slider -->
+                    <div class="hotel-image-slider">
+                        <div id="slider-@item.Id" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner rounded-top">
+                                <div class="carousel-item active">
+                                    <img src="https://source.unsplash.com/random/600x400/?hotel,1" class="d-block w-100" alt="@item.Name" style="height: 200px; object-fit: cover;">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://source.unsplash.com/random/600x400/?hotel,2" class="d-block w-100" alt="@item.Name" style="height: 200px; object-fit: cover;">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://source.unsplash.com/random/600x400/?hotel,3" class="d-block w-100" alt="@item.Name" style="height: 200px; object-fit: cover;">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#slider-@item.Id" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: rgba(0,0,0,0.3); border-radius: 50%;"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#slider-@item.Id" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: rgba(0,0,0,0.3); border-radius: 50%;"></span>
+                            </button>
+                        </div>
+                    </div>
 
-</div>
+                    <!-- Favori Butonu -->
+                    <button class="btn-favorite">
+                        <i class="far fa-heart"></i>
+                    </button>
 
-<div class="row">
-    <div class="col-md-12">
-        <table class="table">
-            <thead>
-                <tr>
-                    <td>Hotels Name </td>
-                    <td>Star Count </td>
-                    <td>City </td>
-                    <td></td>
-                </tr>
-            </thead>
+                    <!-- Otel Detayları -->
+                    <div class="card-body pt-3">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div>
+                                <h5 class="card-title mb-0" style="color: #2c3e50;">@item.Name</h5>
+                                <div class="d-flex align-items-center mt-1">
+                                    <div class="star-rating me-2">
+                                        @for (int i = 0; i < 5; i++)
+                                        {
+                                            <i class="fas fa-star @(i < item.StarCount ? "text-warning" : "text-muted")"></i>
+                                        }
+                                    </div>
+                                    <small class="text-muted">@item.StarCount Yıldız</small>
+                                </div>
+                            </div>
+                        </div>
 
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@item.Name</td>
-                        <td>@item.StarCount</td>
-                        <td>@item.City</td>
-                        <td>
-                            <a asp-action="CreateAndUpdate" asp-controller="Hotels" asp-route-id="@item.Id" class="btn btn-warning btn-sm-2">Details</a>
-                        </td>
-                    </tr>
-                }
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-map-marker-alt me-2" style="color: #e74c3c;"></i>
+                            <span style="color: #7f8c8d;">@item.City</span>
+                        </div>
 
-            </tbody>
-        </table>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="badge me-2" style="background-color: #e3f2fd; color: #1976d2;">Lüks</span>
+                                <span class="badge" style="background-color: #e8f5e9; color: #388e3c;">SPA</span>
+                            </div>
+                            <a asp-action="CreateAndUpdate" asp-controller="Hotels" asp-route-id="@item.Id" 
+                               class="btn btn-sm rounded-pill px-3" style="border: 1px solid #3498db; color: #3498db;">
+                                Detaylar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 </div>
+
+@section Styles {
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .hotel-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .hotel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12) !important;
+        }
+        
+        .btn-favorite {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            color: #e74c3c;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-favorite:hover {
+            color: #c0392b;
+            transform: scale(1.1);
+        }
+        
+        .btn-favorite .fas {
+            display: none;
+        }
+        
+        .btn-favorite.active .far {
+            display: none;
+        }
+        
+        .btn-favorite.active .fas {
+            display: block;
+        }
+        
+        .star-rating {
+            font-size: 0.9rem;
+        }
+        
+        .carousel-control-prev, 
+        .carousel-control-next {
+            width: 30px;
+            height: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        // Favori buton işlevselliği
+        document.querySelectorAll('.btn-favorite').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+}
