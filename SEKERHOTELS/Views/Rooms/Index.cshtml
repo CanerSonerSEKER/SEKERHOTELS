@@ -240,13 +240,6 @@
     </style>
 </head>
 <body>
-
-
-    <header>
-        <h1>Odalarımız</h1>
-        <p>Lüks ve konforla tasarlanmış modern odalar</p>
-    </header>
-
     <section class="filters">
         <form asp-action="Index" method="get" class="d-flex flex-wrap gap-2">
             <input type="text" name="name" placeholder="Otel Adı" class="form-control" value="@Context.Request.Query["name"]" />

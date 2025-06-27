@@ -1,64 +1,4 @@
-﻿@* <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SEKERHOTELS</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/SEKERHOTELS.styles.css" asp-append-version="true" />
-    @RenderSection("Styles", required: false)
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SEKERHOTELS</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - SEKERHOTELS - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
-</html>
-
- *@
-
-
-<!DOCTYPE html>
-<html lang="tr">
-<head>
+﻿<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LuxeStay Hotel - Lüks Konaklama Deneyimi</title>
@@ -665,201 +605,35 @@
         }
     </style>
 </head>
-<body>
-    <!-- Navbar -->
     <nav class="navbar" id="navbar">
-        <a href="#" class="logo">LuxeStay Hotel</a>
+        <a href="#" class="logo"> KOLAY | <p style="font-size: 10px; color: black;">Otel Bulmanın Kolayı</p></a>
 
         <ul class="nav-menu">
-            <li><a href="#" class="nav-link">Ana Sayfa</a></li>
-            <li><a href="#" class="nav-link">Odalarımız</a></li>
-            <li><a href="#" class="nav-link">Olanaklar</a></li>
-            <li><a href="#" class="nav-link">Deneyimler</a></li>
-            <li><a href="#" class="nav-link">Galeri</a></li>
-            <li><a href="#" class="nav-link">İletişim</a></li>
+            <li> <a asp-action="Index" asp-controller="Home" class="nav-link"> Ana Sayfa</a> </li>
+            <li> <a asp-action="Index" asp-controller="Hotels" class="nav-link"> Oteller </a> </li>
+            <li> <a asp-action="Index" asp-controller="Home" class="nav-link"> Olanaklar</a> </li>
+            <li> <a asp-action="Index" asp-controller="Home" class="nav-link"> Deneyimler</a> </li>
+            <li> <a href="#" class="nav-link"> Galeri</a> </li> 
+            <li> <a href="#" class="nav-link"> İletişim</a> </li> 
         </ul>
-
+        
         <div class="nav-actions">
             <select class="language-selector">
-                <option value="tr">🇹🇷 TR</option>
-                <option value="en">🇺🇸 EN</option>
+                <option value="tr"> 🇹🇷 TR</option>
+                <option value="en"> 🇺🇸 EN</option>
             </select>
-            <a href="#" class="login-btn">Giriş Yap</a>
-            <a href="#" class="cta-btn">Rezervasyon Yap</a>
+            <a href="#" class="login-btn"> Giriş Yap</a>
+            <a asp-action="Index" asp-controller="Reservations" class="cta-btn"> Rezervasyon Yap</a>
         </div>
 
         <div class="mobile-menu">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span> </span>
+            <span> </span>
+            <span> </span>
         </div>
     </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Unutulmaz Konaklama Deneyimi</h1>
-            <p>Lüks ve konforun buluştuğu noktada, İstanbul'un kalbinde özel anlar yaşayın</p>
-
-            <div class="reservation-form">
-                <div class="form-group">
-                    <label for="checkin">Giriş Tarihi</label>
-                    <input type="date" id="checkin" name="checkin">
-                </div>
-                <div class="form-group">
-                    <label for="checkout">Çıkış Tarihi</label>
-                    <input type="date" id="checkout" name="checkout">
-                </div>
-                <div class="form-group">
-                    <label for="guests">Misafir Sayısı</label>
-                    <select id="guests" name="guests">
-                        <option value="1">1 Misafir</option>
-                        <option value="2">2 Misafir</option>
-                        <option value="3">3 Misafir</option>
-                        <option value="4">4 Misafir</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="room-type">Oda Tipi</label>
-                    <select id="room-type" name="room-type">
-                        <option value="deluxe">Deluxe Oda</option>
-                        <option value="suite">Suite Oda</option>
-                        <option value="presidential">Presidential Suite</option>
-                    </select>
-                </div>
-                <button class="reservation-btn" type="submit">
-                    <i class="fas fa-search"></i> Rezervasyon Yap
-                </button>
-            </div>
-        </div>
-    </section>
     @RenderBody()
-    <!-- Services Section -->
-    <section class="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Özel Hizmetlerimiz</h2>
-                <p>Size unutulmaz bir konaklama deneyimi sunmak için özenle tasarlanmış hizmetlerimiz</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-spa"></i>
-                    </div>
-                    <h3>Spa & Wellness</h3>
-                    <p>Profesyonel terapistlerimiz eşliğinde, vücudunuzu ve ruhunuzu dinlendiren spa deneyimi yaşayın.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <h3>Fine Dining</h3>
-                    <p>Dünya mutfağından seçkin lezzetler ve yerel tatları birleştiren gurme deneyimi.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-dumbbell"></i>
-                    </div>
-                    <h3>Fitness Center</h3>
-                    <p>Modern ekipmanlar ile donatılmış fitness merkezimizde formunuzu koruyun.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-concierge-bell"></i>
-                    </div>
-                    <h3>24/7 Concierge</h3>
-                    <p>Günün her saati hizmetinizde olan concierge ekibimiz ile özel isteklerinizi karşılayın.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Rooms Section -->
-    <section class="rooms">
-        <div class="container">
-            <div class="section-title">
-                <h2>Popüler Odalarımız</h2>
-                <p>Konfor ve lüksün mükemmel uyumunu sunan odalarımızı keşfedin</p>
-            </div>
-            <div class="rooms-grid">
-                <div class="room-card">
-                    <div class="room-image">
-                        <div class="room-price">₺2.500/gece</div>
-                    </div>
-                    <div class="room-content">
-                        <h3>Deluxe Oda</h3>
-                        <p>Şehir manzaralı, lüks mobilyalarla döşenmiş konforlu odamız.</p>
-                        <div class="room-features">
-                            <div class="feature">
-                                <i class="fas fa-bed"></i>
-                                <span>King Bed</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-wifi"></i>
-                                <span>Free WiFi</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-bath"></i>
-                                <span>Jakuzi</span>
-                            </div>
-                        </div>
-                        <button class="room-btn">Detayları Gör</button>
-                    </div>
-                </div>
-                <div class="room-card">
-                    <div class="room-image">
-                        <div class="room-price">₺4.000/gece</div>
-                    </div>
-                    <div class="room-content">
-                        <h3>Suite Oda</h3>
-                        <p>Ayrı oturma alanı olan geniş ve lüks suite odamız.</p>
-                        <div class="room-features">
-                            <div class="feature">
-                                <i class="fas fa-bed"></i>
-                                <span>King Bed</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-couch"></i>
-                                <span>Oturma Alanı</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-glass-martini"></i>
-                                <span>Mini Bar</span>
-                            </div>
-                        </div>
-                        <button class="room-btn">Detayları Gör</button>
-                    </div>
-                </div>
-                <div class="room-card">
-                    <div class="room-image">
-                        <div class="room-price">₺7.500/gece</div>
-                    </div>
-                    <div class="room-content">
-                        <h3>Presidential Suite</h3>
-                        <p>En lüks konaklama deneyimi için özel tasarlanmış suite.</p>
-                        <div class="room-features">
-                            <div class="feature">
-                                <i class="fas fa-crown"></i>
-                                <span>VIP Hizmet</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-hot-tub"></i>
-                                <span>Özel Terras</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-concierge-bell"></i>
-                                <span>Özel Butler</span>
-                            </div>
-                        </div>
-                        <button class="room-btn">Detayları Gör</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -921,9 +695,6 @@
                 </p>
             </div>
     </footer>
+
     @RenderSection("Scripts", required: false)
-    @RenderSection("Styles", required: false)
-
-</body>
-</html>
-
+    @RenderSection("Styles", required:false)

@@ -1,61 +1,65 @@
 ﻿@model SEKERHOTELS.Models.ReservationsModel
 
 @{
-    ViewData["Title"] = Model.Id == 0 ? "Yeni Oda Tipi Ekle" : "Oda Tipini Güncelle";
+    ViewData["Title"] = Model.Id == 0 ? "Yeni Rezervasyon Oluştur" : "Rezervasyon Güncelle";
 }
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
 <div class="container mt-5">
-    <div class="card shadow-lg border-0 rounded-4">
-        <div class="card-header bg-primary text-white text-center rounded-top-4">
-            <h3 class="mb-0">@ViewData["Title"]</h3>
+    <div class="card shadow-lg border-0 rounded-4" >
+        <div class="card-header bg-primary text-white text-center rounded-top-4 py-3">
+            <h3 class="mb-0 fw-bold">@ViewData["Title"]</h3>
         </div>
 
-        <div class="card-body">
+        <div class="card-body" >
             <form asp-action="CreateAndUpdate" asp-controller="Reservations" method="post" novalidate>
                 <input type="hidden" asp-for="Id" />
 
-                <div class="mb-4">
-                    <label class="form-label fw-semibold"> Müşteri ID </label>
-                    <select asp-for="CustomerId" class="form-control" asp-items="ViewBag.CustomerName">
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Müşteri Adı</label>
+                    <select asp-for="CustomerId" class="form-select" asp-items="ViewBag.CustomerName">
                         <option value="">-- Müşteri Seçiniz --</option>
                     </select>
-                    @*<input asp-for="CustomerId" type="text" class="form-control form-control-lg" placeholder="Örn: 1,2,3,4" />*@
                     <span asp-validation-for="CustomerId" class="text-danger small"></span>
                 </div>
 
-                <div class="mb-4">
-                    <label class="form-label fw-semibold">Oda Id </label>
-                    <select asp-for="RoomId" class="form-control" asp-items="ViewBag.RoomName">
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Oda Numarası</label>
+                    <select asp-for="RoomId" class="form-select" asp-items="ViewBag.RoomName">
                         <option value="">-- Oda Seçiniz --</option>
                     </select>
-                    @*<input asp-for="RoomId" type="text" class="form-control form-control-lg" placeholder="Orn: 1,2,3,4 ..." />*@
                     <span asp-validation-for="RoomId" class="text-danger small"></span>
                 </div>
 
-                <div class="mb-4">
-                    <label class="form-label fw-semibold"> Başlangıç Tarihi </label>
-                    <input asp-for="CheckInDate" type="text" class="form-control form-control-lg" placeholder="Başlangıç tarihi giriniz ..." />
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Giriş Tarihi</label>
+                    <input asp-for="CheckInDate" type="date" class="form-control form-control-lg" placeholder="Giriş tarihi giriniz ..." />
                     <span asp-validation-for="CheckInDate" class="text-danger small"></span>
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label fw-semibold">Bitiş Tarihi </label>
-                    <input asp-for="CheckOutDate" type="text" class="form-control form-control-lg" placeholder="Bitiş Tarihi..." />
+                    <label class="form-label fw-semibold">Çıkış Tarihi</label>
+                    <input asp-for="CheckOutDate" type="date" class="form-control form-control-lg" placeholder="Bitiş Tarihi Giriniz ..." />
                     <span asp-validation-for="CheckOutDate" class="text-danger small"></span>
                 </div>
 
-                <div class="text-center mt-4">
-                    <button type="submit" class="btn btn-success px-4 me-2">
-                        <i class="bi bi-check-circle-fill"></i> Kaydet
+                <div class="d-flex justify-content-center gap-3">
+                    <button type="submit" class="btn btn-success px-4">
+                        <i class="bi bi-check-circle-fill me-1"></i> Kaydet
                     </button>
                     <a asp-action="Index" asp-controller="Reservations" class="btn btn-outline-secondary px-4">
-                        <i class="bi bi-x-circle-fill"></i> Vazgeç
+                        <i class="bi bi-x-circle-fill me-1"></i> Vazgeç
                     </a>
                 </div>
             </form>
+        </div>
+
+        <div class="card-footer bg-light text-center py-3">
+            <a asp-controller="Customers" asp-action="CreateAndUpdate" class="btn btn-primary">
+                <i class="bi bi-person-plus-fill me-1"></i> Yeni Müşteri Ekle
+            </a>
         </div>
     </div>
 </div>

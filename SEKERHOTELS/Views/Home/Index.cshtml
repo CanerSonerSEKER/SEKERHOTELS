@@ -1,9 +1,871 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxeStay Hotel - Lüks Konaklama Deneyimi</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 0 2rem;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+            .navbar.scrolled {
+                background: rgba(255, 255, 255, 0.98);
+                box-shadow: 0 2px 30px rgba(0, 0, 0, 0.15);
+            }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #B8860B;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+            .logo:hover {
+                transform: scale(1.05);
+            }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #2C3E50;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+            .nav-link:hover {
+                color: #B8860B;
+            }
+
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: #B8860B;
+                transition: width 0.3s ease;
+            }
+
+            .nav-link:hover::after {
+                width: 100%;
+            }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .language-selector {
+            background: none;
+            border: 1px solid #ddd;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .language-selector:hover {
+                border-color: #B8860B;
+            }
+
+        .login-btn {
+            color: #2C3E50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+            .login-btn:hover {
+                color: #B8860B;
+            }
+
+        .cta-btn {
+            background: linear-gradient(135deg, #B8860B, #DAA520);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(184, 134, 11, 0.3);
+        }
+
+            .cta-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4);
+            }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+            .mobile-menu span {
+                width: 25px;
+                height: 3px;
+                background: #2C3E50;
+                margin: 3px 0;
+                transition: 0.3s;
+            }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .reservation-form {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+            .form-group label {
+                color: #2C3E50;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+            }
+
+            .form-group input, .form-group select {
+                padding: 0.75rem;
+                border: 2px solid #e0e0e0;
+                border-radius: 8px;
+                font-size: 1rem;
+                transition: border-color 0.3s ease;
+            }
+
+                .form-group input:focus, .form-group select:focus {
+                    outline: none;
+                    border-color: #B8860B;
+                }
+
+        .reservation-btn {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #B8860B, #DAA520);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+            .reservation-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(184, 134, 11, 0.4);
+            }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: #F8F9FA;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+            .section-title h2 {
+                font-size: 2.5rem;
+                color: #2C3E50;
+                margin-bottom: 1rem;
+            }
+
+            .section-title p {
+                font-size: 1.1rem;
+                color: #666;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .service-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            }
+
+            .service-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(184, 134, 11, 0.1), transparent);
+                transition: left 0.5s ease;
+            }
+
+            .service-card:hover::before {
+                left: 100%;
+            }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #B8860B;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: #2C3E50;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Rooms Section */
+        .rooms {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .room-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+            .room-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            }
+
+        .room-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .room-card:nth-child(1) .room-image {
+            background-image: url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+        }
+
+        .room-card:nth-child(2) .room-image {
+            background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+        }
+
+        .room-card:nth-child(3) .room-image {
+            background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+        }
+
+        .room-price {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(184, 134, 11, 0.9);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        .room-content {
+            padding: 1.5rem;
+        }
+
+            .room-content h3 {
+                color: #2C3E50;
+                margin-bottom: 0.5rem;
+            }
+
+            .room-content p {
+                color: #666;
+                margin-bottom: 1rem;
+            }
+
+        .room-features {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+            .feature i {
+                color: #B8860B;
+            }
+
+        .room-btn {
+            background: linear-gradient(135deg, #B8860B, #DAA520);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+            .room-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(184, 134, 11, 0.4);
+            }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #2C3E50, #34495E);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #B8860B;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p, .footer-section li {
+            color: #CCCCCC;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #CCCCCC;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .footer-section a:hover {
+                color: #DAA520;
+            }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+            .social-icons a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                background: rgba(184, 134, 11, 0.2);
+                border-radius: 50%;
+                transition: all 0.3s ease;
+            }
+
+                .social-icons a:hover {
+                    background: #B8860B;
+                    transform: scale(1.1);
+                }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+            .newsletter-form input {
+                flex: 1;
+                padding: 0.75rem;
+                border: 1px solid #444;
+                border-radius: 8px;
+                background: rgba(255, 255, 255, 0.1);
+                color: white;
+            }
+
+                .newsletter-form input::placeholder {
+                    color: #CCCCCC;
+                }
+
+            .newsletter-form button {
+                background: linear-gradient(135deg, #B8860B, #DAA520);
+                color: white;
+                border: none;
+                padding: 0.75rem 1.5rem;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+                .newsletter-form button:hover {
+                    transform: translateY(-2px);
+                }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 1rem;
+        }
+
+            .payment-methods i {
+                font-size: 1.5rem;
+                color: #CCCCCC;
+            }
+
+        /* Animations */
+        @@keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @@media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .reservation-form {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+
+            .navbar {
+                padding: 0 1rem;
+                height: 60px;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @@media (max-width: 480px) {
+            .hero {
+                background-attachment: scroll;
+            }
+
+            .hero-content {
+                padding: 1rem;
+            }
+
+            .reservation-form {
+                margin: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <a asp-action="Index" asp-controller="Home" class="logo"> KOLAY | <p style="font-size: 10px; color: black;">Otel Bulmanın Kolayı</p></a>
+
+        <ul class="nav-menu">
+            <li> <a asp-action="Index" asp-controller="Home" class="nav-link"> Ana Sayfa</a> </li>
+            <li> <a asp-action="Index" asp-controller="Hotels" class="nav-link"> Oteller </a> </li>
+            <li> <a asp-action="Index" asp-controller="Home" class="nav-link"> Olanaklar</a> </li>
+            <li> <a asp-action="Index" asp-controller="Home" class="nav-link"> Deneyimler</a> </li>
+            <li> <a href="#" class="nav-link"> Galeri</a> </li>
+            <li> <a href="#" class="nav-link"> İletişim</a> </li>
+        </ul>
+
+        <div class="nav-actions">
+            <select class="language-selector">
+                <option value="tr"> 🇹🇷 TR</option>
+                <option value="en"> 🇺🇸 EN</option>
+            </select>
+            <a href="#" class="login-btn"> Giriş Yap</a>
+            <a asp-action="CreateAndUpdate" asp-controller="Reservations" class="cta-btn"> Rezervasyon Yap</a>
+        </div>
+
+        <div class="mobile-menu">
+            <span> </span>
+            <span> </span>
+            <span> </span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Unutulmaz Konaklama Deneyimi</h1>
+            <p>Lüks ve konforun buluştuğu noktada, İstanbul'un kalbinde özel anlar yaşayın</p>
+
+            <div class="reservation-form">
+                <div class="form-group">
+                    <label for="checkin">Giriş Tarihi</label>
+                    <input type="date" id="checkin" name="checkin">
+                </div>
+                <div class="form-group">
+                    <label for="checkout">Çıkış Tarihi</label>
+                    <input type="date" id="checkout" name="checkout">
+                </div>
+                <div class="form-group">
+                    <label for="guests">Misafir Sayısı</label>
+                    <select id="guests" name="guests">
+                        <option value="1">1 Misafir</option>
+                        <option value="2">2 Misafir</option>
+                        <option value="3">3 Misafir</option>
+                        <option value="4">4 Misafir</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="room-type">Oda Tipi</label>
+                    <select id="room-type" name="room-type">
+                        <option value="deluxe">Deluxe Oda</option>
+                        <option value="suite">Suite Oda</option>
+                        <option value="presidential">Presidential Suite</option>
+                    </select>
+                </div>
+                <button class="reservation-btn" type="submit">
+                    <i class="fas fa-search"></i> Rezervasyon Yap
+                </button>
+            </div>
+        </div>
+    </section>
+    @*@RenderBody()*@
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Özel Hizmetlerimiz</h2>
+                <p>Size unutulmaz bir konaklama deneyimi sunmak için özenle tasarlanmış hizmetlerimiz</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Spa & Wellness</h3>
+                    <p>Profesyonel terapistlerimiz eşliğinde, vücudunuzu ve ruhunuzu dinlendiren spa deneyimi yaşayın.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Fine Dining</h3>
+                    <p>Dünya mutfağından seçkin lezzetler ve yerel tatları birleştiren gurme deneyimi.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>Fitness Center</h3>
+                    <p>Modern ekipmanlar ile donatılmış fitness merkezimizde formunuzu koruyun.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h3>24/7 Concierge</h3>
+                    <p>Günün her saati hizmetinizde olan concierge ekibimiz ile özel isteklerinizi karşılayın.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section class="rooms">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popüler Odalarımız</h2>
+                <p>Konfor ve lüksün mükemmel uyumunu sunan odalarımızı keşfedin</p>
+            </div>
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <div class="room-image">
+                        <div class="room-price">₺2.500/gece</div>
+                    </div>
+                    <div class="room-content">
+                        <h3>Deluxe Oda</h3>
+                        <p>Şehir manzaralı, lüks mobilyalarla döşenmiş konforlu odamız.</p>
+                        <div class="room-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>King Bed</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-wifi"></i>
+                                <span>Free WiFi</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bath"></i>
+                                <span>Jakuzi</span>
+                            </div>
+                        </div>
+                        <button class="room-btn">Detayları Gör</button>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <div class="room-image">
+                        <div class="room-price">₺4.000/gece</div>
+                    </div>
+                    <div class="room-content">
+                        <h3>Suite Oda</h3>
+                        <p>Ayrı oturma alanı olan geniş ve lüks suite odamız.</p>
+                        <div class="room-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>King Bed</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-couch"></i>
+                                <span>Oturma Alanı</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-glass-martini"></i>
+                                <span>Mini Bar</span>
+                            </div>
+                        </div>
+                        <button class="room-btn">Detayları Gör</button>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <div class="room-image">
+                        <div class="room-price">₺7.500/gece</div>
+                    </div>
+                    <div class="room-content">
+                        <h3>Presidential Suite</h3>
+                        <p>En lüks konaklama deneyimi için özel tasarlanmış suite.</p>
+                        <div class="room-features">
+                            <div class="feature">
+                                <i class="fas fa-crown"></i>
+                                <span>VIP Hizmet</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-hot-tub"></i>
+                                <span>Özel Terras</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-concierge-bell"></i>
+                                <span>Özel Butler</span>
+                            </div>
+                        </div>
+                        <button class="room-btn">Detayları Gör</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LuxeStay Hotel</h3>
+                    <p>Lüks ve konforun buluştuğu noktada, unutulmaz konaklama deneyimi sunuyoruz.</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Taksim, Beyoğlu, İstanbul</p>
+                    <p><i class="fas fa-phone"></i> +90 212 555 0123</p>
+                    <p><i class="fas fa-envelope"></i> info@luxestay.com</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Hızlı Erişim</h3>
+                    <ul>
+                        <li><a href="#">Ana Sayfa</a></li>
+                        <li><a href="#">Odalarımız</a></li>
+                        <li><a href="#">Rezervasyon Yap</a></li>
+                        <li><a href="#">Özel Teklifler</a></li>
+                        <li><a href="#">Sadakat Programı</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Kariyer</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Hizmetlerimiz</h3>
+                    <ul>
+                        <li><a href="#">Spa & Wellness</a></li>
+                        <li><a href="#">Fine Dining Restaurant</a></li>
+                        <li><a href="#">Bar & Lounge</a></li>
+                        <li><a href="#">Fitness Center</a></li>
+                        <li><a href="#">Business Center</a></li>
+                        <li><a href="#">Valet Park</a></li>
+                        <li><a href="#">24/7 Concierge</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Bizimle Kalın</h3>
+                    <p>Özel tekliflerden ve etkinliklerden haberdar olmak için bültenimize abone olun.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="E-posta adresiniz">
+                        <button type="submit">Abone Ol</button>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <p><strong>Çalışma Saatleri:</strong></p>
+                        <p>Resepsiyon: 7/24</p>
+                        <p>Restaurant: 07:00 - 24:00</p>
+                        <p>Spa: 09:00 - 22:00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2025 LuxeStay Hotel. Tüm hakları saklı
+                </p>
+            </div>
+    </footer>
+    @*@RenderSection("Scripts", required: false)*@
+    @*@RenderSection("Styles", required: false)*@
+
+</body>
+</html>
 
