@@ -14,10 +14,20 @@ namespace SEKERHOTELS.Controllers
     public class ReservationsController : Controller
     {
         // GET: /<controller>/
-        public IActionResult Index()
+        public IActionResult Index(string customerName, int roomNumber, DateTime checkInDate, DateTime checkOutDate)
         {
-            var indexList = DP.Listeleme<dynamic>("GetListWithName");
-            return View(indexList);
+            DynamicParameters param = new DynamicParameters();
+
+            param.Add("CustomerName", string.IsNullOrWhiteSpace(customerName) ? null : customerName);
+            param.Add("RoomNumber", string.IsNullOrWhiteSpace(roomNumber.ToString()) ? null : roomNumber);
+            param.Add("CheckInDate", checkInDate == default(DateTime) ? null : checkInDate);
+            param.Add("CheckOutDate", checkOutDate == default(DateTime) ? null : checkOutDate);
+
+            var listWithSearch = DP.Listeleme<dynamic>("SearchingReservations", param);
+
+
+            //var indexList = DP.Listeleme<dynamic>("GetListWithName");
+            return View(listWithSearch);
             //return View(DP.Listeleme<ReservationsModel>("GetAllReservations"));
         }
 

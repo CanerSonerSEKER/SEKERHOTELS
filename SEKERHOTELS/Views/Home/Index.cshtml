@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿@* <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -675,7 +675,7 @@
             </div>
         </div>
     </section>
-    @*@RenderBody()*@
+    @RenderBody()
     <!-- Services Section -->
     <section class="services">
         <div class="container">
@@ -863,9 +863,10 @@
                 </p>
             </div>
     </footer>
-    @*@RenderSection("Scripts", required: false)*@
-    @*@RenderSection("Styles", required: false)*@
+    @RenderSection("Scripts", required: false)
+    @RenderSection("Styles", required: false)
 
 </body>
 </html>
 
+ *@

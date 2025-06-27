@@ -8,10 +8,29 @@
 
 <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="text-primary">Rezervasyon Oluştur</h2>
         <a asp-action="CreateAndUpdate" asp-controller="Reservations" class="btn btn-success">
             <i class="bi bi-plus-circle"></i> Rezervasyon Oluştur
         </a>
+    </div>
+
+    <div class="search-bar">
+        <form asp-action="Index" asp-controller="Reservations" method="get" class="row g-3">
+            <div class="col-md-3">
+                <input type="text" name="customerName" class="form-control" placeholder="Müşteri Adı">
+            </div>
+            <div class="col-md-2">
+                <input type="text" name="roomNumber" class="form-control" placeholder="Oda Numarası">
+            </div>
+            <div class="col-md-3">
+                <input type="date" name="checkInDate" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <input type="date" name="checkOutDate" class="form-control">
+            </div>
+            <div class="col-md-1 d-grid">
+                <button type="submit" class="btn btn-primary">Ara</button>
+            </div>
+        </form>
     </div>
 
     <div class="card shadow">
@@ -34,7 +53,7 @@
                         {
                             <tr>
                                 <td></td>
-                                <td>@item.FullName</td>
+                                <td>@item.CustomerName</td>
                                 <td>@item.RoomNumber</td>
                                 <td>@item.CheckInDate.ToString("dd/MM/yyyy")</td>
                                 <td>@item.CheckOutDate.ToString("dd/MM/yyyy") </td>
@@ -54,7 +73,7 @@
             else
             {
                 <div class="alert alert-info text-center">
-                    Henüz herhangi bir oda tipi eklenmemiş.
+                    Aradığınız rezervasyon bulunamadı...
                 </div>
             }
         </div>
