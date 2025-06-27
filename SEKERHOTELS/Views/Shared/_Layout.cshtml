@@ -63,7 +63,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LuxeStay Hotel - Lüks Konaklama Deneyimi</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    @RenderSection("Styles", required: false)
     <style>
         * {
             margin: 0;
@@ -598,80 +597,71 @@
 
         /* Animations */
         @@keyframes fadeInUp {
-            from
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
 
-        {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Responsive Design */
         @@media (max-width: 768px) {
-            .nav-menu
+            .nav-menu {
+                display: none;
+            }
 
-        {
-            display: none;
-        }
+            .mobile-menu {
+                display: flex;
+            }
 
-        .mobile-menu {
-            display: flex;
-        }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
 
-        .hero h1 {
-            font-size: 2.5rem;
-        }
+            .hero p {
+                font-size: 1.1rem;
+            }
 
-        .hero p {
-            font-size: 1.1rem;
-        }
+            .reservation-form {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
 
-        .reservation-form {
-            grid-template-columns: 1fr;
-            padding: 1.5rem;
-        }
+            .navbar {
+                padding: 0 1rem;
+                height: 60px;
+            }
 
-        .navbar {
-            padding: 0 1rem;
-            height: 60px;
-        }
+            .container {
+                padding: 0 1rem;
+            }
 
-        .container {
-            padding: 0 1rem;
-        }
+            .section-title h2 {
+                font-size: 2rem;
+            }
 
-        .section-title h2 {
-            font-size: 2rem;
-        }
-
-        .footer-bottom {
-            flex-direction: column;
-            gap: 1rem;
-        }
-
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+            }
         }
 
         @@media (max-width: 480px) {
-            .hero
+            .hero {
+                background-attachment: scroll;
+            }
 
-        {
-            background-attachment: scroll;
-        }
+            .hero-content {
+                padding: 1rem;
+            }
 
-        .hero-content {
-            padding: 1rem;
-        }
-
-        .reservation-form {
-            margin: 0 1rem;
-        }
-
+            .reservation-form {
+                margin: 0 1rem;
+            }
         }
     </style>
 </head>
@@ -868,6 +858,7 @@
         </div>
     </section>
 
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -925,10 +916,14 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 LuxeStay Hotel. Tüm hakları saklı
-                    </p>
+                <p>
+                    &copy; 2025 LuxeStay Hotel. Tüm hakları saklı
+                </p>
             </div>
-            </footer>
+    </footer>
+    @RenderSection("Scripts", required: false)
+    @RenderSection("Styles", required: false)
 
-            </body>
+</body>
+</html>
 
