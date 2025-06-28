@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SEKERHOTELS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+33b61aadf3df567f8619c466b7ac7e5f0e577beb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+df86004da8fb447d8682ead83be846aa58d55c68")]
 [assembly: System.Reflection.AssemblyProductAttribute("SEKERHOTELS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SEKERHOTELS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
